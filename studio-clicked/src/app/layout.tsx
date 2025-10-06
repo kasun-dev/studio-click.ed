@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import SplashScreen from "./components/SplashScreen";
@@ -11,10 +12,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <body className="bg-black text-[#EBEBEB] min-h-screen">
-        {!splashDone && <SplashScreen onFinish={() => setSplashDone(true)} />}
+      <body className=" min-h-screen">
+        {/* Splash Screen */}
+        <AnimatePresence>
+          {!splashDone && <SplashScreen onFinish={() => setSplashDone(true)} />}
+        </AnimatePresence>
+
+        {/* Navbar */}
         {splashDone && <Navbar />}
-        <main className={`${splashDone ? "" : "hidden"}`}>{children}</main>
+
+        {/* Main content fade in */}
+        {splashDone && (
+          <motion.main
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            {children}
+          </motion.main>
+        )}
       </body>
     </html>
   );

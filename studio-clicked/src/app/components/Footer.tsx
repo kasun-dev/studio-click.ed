@@ -1,40 +1,52 @@
 "use client";
 
-import Image from "next/image";
+import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
+  const socialLinks = [
+    { icon: FaWhatsapp, link: "https://wa.me/94723999927" },
+    { icon: FaInstagram, link: "https://instagram.com/studio_click.ed" },
+    { icon: FaFacebookF, link: "https://facebook.com/share/1CfePvJW7d/?mibextid=wwXIfr" },
+    { icon: FaTiktok, link: "https://www.tiktok.com/@studio_click.ed" },
+    { icon: FaEnvelope, link: "mailto:studioclicked.info@gmail.com" },
+  ];
+
   return (
-    <footer className="bg-black/80 text-[#EBEBEB] py-2 px-4 mt-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
-        {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <Image src="/logo.png" alt="Studio Clicked Logo" width={100} height={100} />
+    <footer className="bg-black text-white py-4 px-4">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+
+        {/* Social Media Icons */}
+        <div className="flex justify-center md:justify-start space-x-4 mb-2 md:mb-0">
+          {socialLinks.map((social, index) => {
+            const Icon = social.icon;
+            return (
+              <a
+                key={index}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-300 transition"
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            );
+          })}
         </div>
 
-        {/* Social Media Links */}
-        <div className="flex space-x-3 text-sm">
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white italic">
-            Facebook
-          </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white italic">
-            Instagram
-          </a>
-          <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white italic">
-            Twitter
-          </a>
-        </div>
-
-        {/* Contact */}
-        <div className="text-center md:text-right text-xs space-y-0.5">
-          <p>Email: studio@clicked.com</p>
-          <p>Phone: +94 77 123 4567</p>
+        {/* Contact Info */}
+        <div className="text-center md:text-right text-sm space-y-1">
+          <p>Email: studioclicked.info@gmail.com</p>
+          <p>Phone: +94 72 399 9927</p>
           <p>Colombo, Sri Lanka</p>
         </div>
       </div>
 
-      <div className="mt-1 text-center text-xs text-gray-400">
-        &copy; {new Date().getFullYear()} Studio Clicked. All rights reserved.
+      <div className=" text-center text-xs text-white">
+        &copy; {new Date().getFullYear()} Studio Clicked. All rights reserved. <br />
+        Created by <span className="text-yellow-400">Beelix Solutions</span>
       </div>
+
+
     </footer>
   );
 }
