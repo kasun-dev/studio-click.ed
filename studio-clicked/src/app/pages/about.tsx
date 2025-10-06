@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <section
@@ -16,10 +18,12 @@ export default function AboutPage() {
       <div className="flex flex-col lg:flex-row w-full max-w-6xl gap-16 items-center">
         {/* Left: Personal photo */}
         <div className="flex-1 flex justify-center">
-          <img
+          <Image
             src="/profile-photo.jpeg" // replace with your own photo
             alt="Kasun Sampath - Studio Clicked"
-            className="w-full max-w-[400px] h-auto rounded-lg shadow-lg object-cover"
+            width={400}
+            height={400}
+            className="rounded-lg shadow-lg object-cover"
           />
         </div>
 
@@ -29,8 +33,8 @@ export default function AboutPage() {
             className="text-base text-black"
             style={{ fontFamily: "'Roboto', sans-serif" }}
           >
-            Hi, I’m Kasun Sampath — the creator behind Studio Clicked. Photography
-            has always been more than a hobby for me; it’s a way to capture the
+            Hi, I&apos;m Kasun Sampath — the creator behind Studio Clicked. Photography
+            has always been more than a hobby for me; it&apos;s a way to capture the
             beauty, emotion, and stories in everyday life. Every photo I take is a
             reflection of the moment, the feeling, and the people in it.
           </p>
@@ -50,8 +54,8 @@ export default function AboutPage() {
             style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             Studio Clicked is my space to experiment, learn, and share my vision with
-            the world. If you’re looking for photography that is genuine, creative,
-            and tailored to you, I’d love to work with you and bring your moments to
+            the world. If you&apos;re looking for photography that is genuine, creative,
+            and tailored to you, I&apos;d love to work with you and bring your moments to
             life.
           </p>
 
