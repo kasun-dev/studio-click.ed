@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface SplashScreenProps {
   onFinish: () => void;
@@ -11,12 +12,10 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Increment progress for the loading bar
     const interval = setInterval(() => {
       setProgress((prev) => (prev < 100 ? prev + 2 : 100));
-    }, 40); // 40ms → 2% per 40ms → ~2s total
+    }, 40); // ~2s total
 
-    // Finish splash after 2s
     const timer = setTimeout(() => {
       clearInterval(interval);
       onFinish();
@@ -39,11 +38,15 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
         transition={{ duration: 1 }}
       >
         {/* Logo */}
-        <img
-          src="/logo.png" // make sure your logo is in public/logo.png
-          alt="Logo"
-          className="w-100 h-100 mb-15"
-        />
+        <div className="mb-6">
+          <Image
+            src="/logo.png" // make sure your logo is in public/logo.png
+            alt="Studio Clicked Logo"
+            width={200} // adjust as needed
+            height={200} // adjust as needed
+            className="object-contain"
+          />
+        </div>
 
         {/* Progress Bar Container */}
         <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
