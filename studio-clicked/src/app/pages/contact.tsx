@@ -68,7 +68,7 @@ export default function ContactPage() {
             className="text-m text-black"
             style={{ fontFamily: "'Roboto', sans-serif" }}
           >
-            We'd love to hear from you! Reach out for bookings, inquiries, or just
+            We&apos;d love to hear from you! Reach out for bookings, inquiries, or just
             to say hello. Connect with us via social media, WhatsApp, or email.
           </p>
 
