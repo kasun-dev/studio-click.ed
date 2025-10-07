@@ -6,21 +6,36 @@ import ServicePage from "./pages/services";
 
 export default function Page() {
   return (
-    <div
-      className="scroll-smooth min-h-screen bg-fixed bg-center bg-cover"
-      style={{ backgroundImage: "url('/background.jpg')" }} // your background image in /public
-    >
-      {/* Overlay (optional, if you want darken/lighten effect) */}
+    <div className="relative scroll-smooth min-h-screen">
+      {/* Fixed Background Layer */}
+      <div
+        className="fixed inset-0 bg-center bg-cover z-[-1]"
+        style={{ backgroundImage: "url('/background.jpg')" }}
+      />
+
+      {/* Overlay (optional) */}
       <div className="bg-black/10 min-h-screen">
         {/* Hero / Home Section */}
-        <HomePage />
+        <section id="home">
+          <HomePage />
+        </section>
+
         {/* Services Section */}
-        <ServicePage />
+        <section id="services">
+          <ServicePage />
+        </section>
+
         {/* Contact Section */}
-        <ContactPage />
-        {/*about section */}
-        <AboutPage />
-        {/* Footer Section */}
+        <section id="contact">
+          <ContactPage />
+        </section>
+
+        {/* About Section */}
+        <section id="about">
+          <AboutPage />
+        </section>
+
+        {/* Footer */}
         <Footer />
       </div>
     </div>
